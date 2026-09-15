@@ -42,6 +42,8 @@ jobs:
           # Combined snapshot
           curl -sS -L "${BASE}?format=jsonl" -o "snapshots/rinkstop-all-${DATE}.jsonl" || exit 1
           ls -t snapshots/rinkstop-all-*.jsonl 2>/dev/null | tail -n +4 | xargs -r rm -f
+          # Wikidata cross-reference mapping
+          curl -sS -L "https://rinkstop.com/api/data/wikidata-mapping?format=jsonl" -o "wikidata-mapping.jsonl" || exit 1
 
       - name: Commit if changed
         run: |
