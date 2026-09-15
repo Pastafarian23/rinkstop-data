@@ -1,0 +1,57 @@
+name: Update dataset snapshots
+
+# Runs every 6 hours to keep GitHub snapshots in sync with the live
+# /api/data/dataset endpoint. Each run regenerates per-entity JSONL
+# files plus a combined snapshot, then commits if anything changed.
+
+on:
+  schedule:
+    - cron: '17 */6 * * *'  # every 6 hours, off-hour to avoid quota collision
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Download snapshots from RinkStop
+        env:
+          BASE: https://rinkstop.com/api/data/dataset
+        run: |
+          mkdir -p snapshots
+          DATE=$(date -u +%Y-%m-%d)
+          for entity in rinks teams leagues players federations; do
+            URL="${BASE}?entity=${entity}&format=jsonl"
+            OUT="snapshots/rinkstop-${entity}-${DATE}.jsonl"
+            echo "Downloading $URL → $OUT"
+            curl -sS -L "$URL" -o "$OUT" || { echo "FAIL: $URL"; exit 1; }
+            # Keep only the most recent 7 days of snapshots per entity
+            ls -t snapshots/rinkstop-${entity}-*.jsonl 2>/dev/null | tail -n +8 | xargs -r rm -f
+          done
+          # Combined snapshot
+          curl -sS -L "${BASE}?format=jsonl" -o "snapshots/rinkstop-all-${DATE}.jsonl" || exit 1
+          ls -t snapshots/rinkstop-all-*.jsonl 2>/dev/null | tail -n +4 | xargs -r rm -f
+
+      - name: Commit if changed
+        run: |
+          git config user.name "rinkstop-bot"
+          git config user.email "bot@rinkstop.com"
+          git add snapshots/
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          DATE=$(date -u +%Y-%m-%dT%H:%M)
+          git commit -m "Update snapshots ${DATE}" || true
+          git push origin main
