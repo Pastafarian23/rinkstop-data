@@ -1,0 +1,40 @@
+# RinkStop ↔ Wikidata cross-reference mapping
+# Generated: 2026-09-15T02:14:38.950Z
+# License: Open data, attribution required
+# 35 mappings
+# Schema: rinkstop_slug,wikidata_qid,label,match_type,rinkstop_type
+{"rinkstop_slug":"nhl","wikidata_qid":"Q12171","label":"National Hockey League","match_type":"exact","rinkstop_type":"league"}
+{"rinkstop_slug":"ahl","wikidata_qid":"Q193230","label":"American Hockey League","match_type":"exact","rinkstop_type":"league"}
+{"rinkstop_slug":"khl","wikidata_qid":"Q193447","label":"Kontinental Hockey League","match_type":"exact","rinkstop_type":"league"}
+{"rinkstop_slug":"pwhl","wikidata_qid":"Q116667005","label":"Professional Women's Hockey League","match_type":"exact","rinkstop_type":"league"}
+{"rinkstop_slug":"shl","wikidata_qid":"Q11921388","label":"Swedish Hockey League","match_type":"exact","rinkstop_type":"league"}
+{"rinkstop_slug":"liiga","wikidata_qid":"Q1131074","label":"Liiga","match_type":"exact","rinkstop_type":"league"}
+{"rinkstop_slug":"del","wikidata_qid":"Q835224","label":"Deutsche Eishockey Liga","match_type":"exact","rinkstop_type":"league"}
+{"rinkstop_slug":"echl","wikidata_qid":"Q1335865","label":"ECHL","match_type":"exact","rinkstop_type":"league"}
+{"rinkstop_slug":"ohl","wikidata_qid":"Q1413351","label":"Ontario Hockey League","match_type":"exact","rinkstop_type":"league"}
+{"rinkstop_slug":"whl","wikidata_qid":"Q1413347","label":"Western Hockey League","match_type":"exact","rinkstop_type":"league"}
+{"rinkstop_slug":"qmjhl","wikidata_qid":"Q1362822","label":"Quebec Maritimes Junior Hockey League","match_type":"exact","rinkstop_type":"league"}
+{"rinkstop_slug":"ushl","wikidata_qid":"Q2129465","label":"United States Hockey League","match_type":"exact","rinkstop_type":"league"}
+{"rinkstop_slug":"nahl","wikidata_qid":"Q2032234","label":"North American Hockey League","match_type":"exact","rinkstop_type":"league"}
+{"rinkstop_slug":"bchl","wikidata_qid":"Q2074030","label":"British Columbia Hockey League","match_type":"exact","rinkstop_type":"league"}
+{"rinkstop_slug":"ajhl","wikidata_qid":"Q4650890","label":"Alberta Junior Hockey League","match_type":"exact","rinkstop_type":"league"}
+{"rinkstop_slug":"ncaa","wikidata_qid":"Q1855984","label":"National Collegiate Athletic Association","match_type":"alias","rinkstop_type":"league"}
+{"rinkstop_slug":"usports","wikidata_qid":"Q7894956","label":"U Sports","match_type":"exact","rinkstop_type":"league"}
+{"rinkstop_slug":"iihf","wikidata_qid":"Q208854","label":"International Ice Hockey Federation","match_type":"exact","rinkstop_type":"league"}
+{"rinkstop_slug":"champions-hockey-league","wikidata_qid":"Q508322","label":"Champions Hockey League","match_type":"exact","rinkstop_type":"league"}
+{"rinkstop_slug":"hockey-canada","wikidata_qid":"Q2166904","label":"Hockey Canada","match_type":"exact","rinkstop_type":"federation"}
+{"rinkstop_slug":"usa-hockey","wikidata_qid":"Q2522548","label":"USA Hockey","match_type":"exact","rinkstop_type":"federation"}
+{"rinkstop_slug":"russia","wikidata_qid":"Q28100304","label":"Russian Ice Hockey Federation","match_type":"alias","rinkstop_type":"federation"}
+{"rinkstop_slug":"sweden","wikidata_qid":"Q2152965","label":"Swedish Ice Hockey Association","match_type":"alias","rinkstop_type":"federation"}
+{"rinkstop_slug":"finland","wikidata_qid":"Q2124626","label":"Finnish Ice Hockey Association","match_type":"alias","rinkstop_type":"federation"}
+{"rinkstop_slug":"germany","wikidata_qid":"Q578292","label":"German Ice Hockey Federation","match_type":"alias","rinkstop_type":"federation"}
+{"rinkstop_slug":"czech-republic","wikidata_qid":"Q21027278","label":"Czech Ice Hockey Association","match_type":"alias","rinkstop_type":"federation"}
+{"rinkstop_slug":"switzerland","wikidata_qid":"Q21027320","label":"Swiss Ice Hockey Federation","match_type":"alias","rinkstop_type":"federation"}
+{"rinkstop_slug":"boston-bruins","wikidata_qid":"Q438847","label":"Boston Bruins","match_type":"exact","rinkstop_type":"team"}
+{"rinkstop_slug":"new-york-rangers","wikidata_qid":"Q193158","label":"New York Rangers","match_type":"exact","rinkstop_type":"team"}
+{"rinkstop_slug":"chicago-blackhawks","wikidata_qid":"Q193147","label":"Chicago Blackhawks","match_type":"exact","rinkstop_type":"team"}
+{"rinkstop_slug":"detroit-red-wings","wikidata_qid":"Q193173","label":"Detroit Red Wings","match_type":"exact","rinkstop_type":"team"}
+{"rinkstop_slug":"montreal-canadiens","wikidata_qid":"Q193164","label":"Montreal Canadiens","match_type":"exact","rinkstop_type":"team"}
+{"rinkstop_slug":"toronto-maple-leafs","wikidata_qid":"Q193191","label":"Toronto Maple Leafs","match_type":"exact","rinkstop_type":"team"}
+{"rinkstop_slug":"edmonton-oilers","wikidata_qid":"Q193193","label":"Edmonton Oilers","match_type":"exact","rinkstop_type":"team"}
+{"rinkstop_slug":"pittsburgh-penguins","wikidata_qid":"Q193181","label":"Pittsburgh Penguins","match_type":"exact","rinkstop_type":"team"}
