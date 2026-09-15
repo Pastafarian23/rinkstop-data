@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RinkStop Global Hockey Directory Dataset",
+  "description": "Authoritative structured dataset of every ice rink, team, league, player, and federation in global hockey. Updated hourly. Sourced from RinkStop.com — the global hockey directory.",
+  "version": "2026.09",
+  "homepage": "https://rinkstop.com",
+  "license": "https://rinkstop.com/data-methodology",
+  "publisher": {
+    "name": "RinkStop",
+    "url": "https://rinkstop.com",
+    "founder": "Arnel Larracas",
+    "founding_year": 2014
+  },
+  "update_frequency": "hourly",
+  "entities": {
+    "rinks": {
+      "description": "Every ice rink, arena, and skating facility worldwide",
+      "primary_key": "id",
+      "slug_field": "slug",
+      "foreign_keys": {
+        "country_code": "countries",
+        "city": "cities"
+      },
+      "fields": {
+        "id": "UUID, primary key",
+        "name": "string, rink display name",
+        "slug": "string, URL-safe identifier",
+        "city": "string, city name",
+        "province_state": "string, state/province name or abbr",
+        "country": "string, country name",
+        "address": "string, full street address",
+        "latitude": "float, decimal degrees",
+        "longitude": "float, decimal degrees",
+        "capacity": "integer, max occupancy",
+        "ice_size": "string, NHL/olympic/etc",
+        "surface_type": "string, ice/synthetic",
+        "website_url": "string, official site",
+        "phone": "string, contact phone",
+        "email": "string, contact email",
+        "status": "string, open/closed/renovation",
+        "is_active": "boolean, in active directory",
+        "qr_identifier": "string, passport QR code id",
+        "timezone": "string, IANA timezone"
+      }
+    },
+    "teams": {
+      "description": "Hockey teams across all tiers (pro, junior, college, amateur, youth)",
+      "primary_key": "id",
+      "slug_field": "slug",
+      "foreign_keys": {
+        "country_code": "countries",
+        "league_id": "leagues",
+        "home_city": "cities"
+      },
+      "fields": {
+        "id": "UUID",
+        "name": "string, team display name",
+        "slug": "string, URL-safe identifier",
+        "country_code": "string, ISO 3166-1 alpha-2",
+        "province_state": "string, state/province",
+        "home_city": "string, city name",
+        "league_id": "UUID, foreign key to leagues",
+        "level": "string, pro/junior/college/international/adult",
+        "is_active": "boolean",
+        "claimed_by_tier": "string, business tier if claimed"
+      }
+    },
+    "leagues": {
+      "description": "Hockey leagues worldwide — professional, junior, college, amateur",
+      "primary_key": "id",
+      "slug_field": "slug",
+      "fields": {
+        "id": "UUID",
+        "name": "string, league display name",
+        "slug": "string, URL-safe identifier",
+        "country": "string, primary country",
+        "level": "string, pro/junior/college/international/adult",
+        "website_url": "string, official site",
+        "is_active": "boolean"
+      }
+    },
+    "players": {
+      "description": "Hockey player profiles",
+      "primary_key": "id",
+      "slug_field": "slug",
+      "foreign_keys": {
+        "team_workspace_id": "teams",
+        "country_code": "countries"
+      },
+      "fields": {
+        "id": "UUID",
+        "full_name": "string",
+        "slug": "string",
+        "position": "string, C/LW/RW/D/G",
+        "team_workspace_id": "UUID, foreign key",
+        "country_code": "string, ISO 3166-1 alpha-2",
+        "birthdate": "date",
+        "height_cm": "integer",
+        "weight_kg": "integer",
+        "shoots": "string, L/R"
+      }
+    },
+    "federations": {
+      "description": "National and regional hockey federations",
+      "primary_key": "id",
+      "slug_field": "slug",
+      "fields": {
+        "id": "UUID",
+        "name": "string, federation display name",
+        "slug": "string",
+        "country": "string",
+        "country_code": "string, ISO 3166-1 alpha-2",
+        "website_url": "string",
+        "iihf_member_since": "integer, year of IIHF membership"
+      }
+    }
+  }
+}
